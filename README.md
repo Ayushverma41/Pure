@@ -2,6 +2,8 @@
 
 This is a simple and elegant eCommerce website model for showcasing and selling jewellery online. It includes modern UI/UX elements and can be easily customized as per individual or business needs.
 
+The website can be viewed by the Given Link
+View Website:-  https://ayushverma41.github.io/Pure/
 
 ## 📁 Features
 
