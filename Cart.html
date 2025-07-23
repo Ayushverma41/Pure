@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="icon" href="image/logo/cart.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="Pure.html"><img src="image/logo/Logo.png" alt="PURE" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="Pure.html">Home</a></li>
+                    <li><a href="Products.html">Product</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Account</a></li>
+                </ul>
+            </nav>
+            <a href="Cart.html"><img src="image/logo/cart.png" alt="img" width="50px" height="50px"></a>
+            <img src="image/logo/menu.png" alt="img" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+
+    <!---------------Cart Item Details------------------>
+
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="image/Product Images/Rings/first/01.png" alt="img">
+                        <div>
+                            <p>The Dimas Textureed Brand for Her</p>
+                            <small>Price:₹ 10,310</small>
+                            <br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>₹ 10,310</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="image/Offer/01.png" alt="img">
+                        <div>
+                            <p>The Aveera Ring</p>
+                            <small>Price:₹ 32,558</small>
+                            <br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>₹ 32,558</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="image/Product Images/Earrings/nile stud/front.png" alt="img">
+                        <div>
+                            <p>The Nile Stud Earrings</p>
+                            <small>Price:₹ 32,411</small>
+                            <br>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>₹ 32,411</td>
+            </tr>
+        </table>
+
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>₹ 70,683</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>₹ 200</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>₹ 70,783</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    
+    <!---------------footer--------------------->
+    
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone</p>
+                    <div class="app-logo">
+                        <img src="image/logo/play store.png" alt="Play-store-img">
+                        <img src="image/logo/App store.png" alt="App-store-img">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="image/logo/Logo.png">
+                    <p>Our Purpose Is To Sustainably Make the Pleasure of 
+                        importance Accessible to the Many</p>
+                </div>
+                <div> class="footer-col-3">
+                        <h3>Useful links</h3>
+                        <ul>
+                            <li>Coupons</li>
+                            <li>Blog Post</li>
+                            <li>Return Policy</li>
+                            <li>Join Affiliate</li>
+                        </ul>
+                </div>
+                <div class="footer-col-4">
+                        <h3>Follow us</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>Youtube</li>
+                        </ul>
+                </div>
+            </div>
+                <hr>
+                <p class="Copyright">Copyright 2024 Pure Jewelries. All rights reserved.</p>
+        </div>
+    </div>
+        
+        <!-----------js for toggle menu------------->
+        <script>
+    var MenuItems=document.getElementById("MenuItems");
+    MenuItems.style.maxHeight="0px";
+    function menutoggle(){
+        if(MenuItems.style.maxHeight=="0px")
+        {
+            MenuItems.style.maxHeight="200px";
+        }
+        else
+        {
+            MenuItems.style.maxHeight="0px";
+        }
+    }
+</script>
+
+</body>
+</html>
