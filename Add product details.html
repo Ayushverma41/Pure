@@ -1,196 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #ff523b;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 10px;
-            color: #333;
-        }
-
-        input[type="text"], input[type="number"], textarea {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border 0.3s;
-        }
-
-        input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
-            outline: none;
-            border-color: #ff523b;
-        }
-
-        textarea {
-            resize: none;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #ff523b;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #e64a19;
-        }
-
-        #image-preview-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .image-preview {
-            width: 100px;
-            height: 100px;
-            margin: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .image-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-preview button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: rgba(255, 0, 0, 0.7);
-            color: #fff;
-            border: none;
-            padding: 2px 5px;
-            font-size: 12px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .image-preview:hover button {
-            opacity: 1;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <title>Products — Add & View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="image/logo/Logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Add New Product</h2>
-        <form id="add-product-form" enctype="multipart/form-data">
-            <label for="name">Product Name:</label>
-            <input type="text" id="name" name="name" required>
+  <h1>Add Product</h1>
 
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" rows="4" required></textarea>
-
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" required>
-
-            <label for="images">Images:</label>
-            <input type="file" id="images" name="images[]" multiple accept="image/*" required>
-            <div id="image-preview-container"></div>
-
-            <button type="submit">Add Product</button>
-        </form>
+  <form id="productForm" autocomplete="off">
+    <div>
+      <label for="provider_id">Provider ID *</label>
+      <input type="number" id="provider_id" name="provider_id" required />
     </div>
 
-    <script>
-        const imagesInput = document.getElementById('images');
-        const imagePreviewContainer = document.getElementById('image-preview-container');
+    <div>
+      <label for="product_name">Product Name *</label>
+      <input type="text" id="product_name" name="product_name" required maxlength="255" />
+    </div>
 
-        imagesInput.addEventListener('change', (event) => {
-            imagePreviewContainer.innerHTML = '';
-            const files = event.target.files;
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const preview = document.createElement('div');
-                    preview.className = 'image-preview';
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    preview.appendChild(img);
+    <div>
+      <label for="product_description">Description</label>
+      <textarea id="product_description" name="product_description" rows="4"></textarea>
+    </div>
 
-                    const removeButton = document.createElement('button');
-                    removeButton.textContent = 'Remove';
-                    removeButton.addEventListener('click', () => {
-                        preview.remove();
-                        const dt = new DataTransfer();
-                        const { files: currentFiles } = imagesInput;
-                        for (let j = 0; j < currentFiles.length; j++) {
-                            if (files[j] !== file) {
-                                dt.items.add(currentFiles[j]);
-                            }
-                        }
-                        imagesInput.files = dt.files;
-                    });
-                    preview.appendChild(removeButton);
-                    imagePreviewContainer.appendChild(preview);
-                };
-                reader.readAsDataURL(file);
-            }
+    <div>
+      <label for="price">Price (e.g. 1999.99) *</label>
+      <input type="number" id="price" name="price" required step="0.01" min="0" />
+    </div>
+
+    <div>
+      <label for="stock_quantity">Stock Quantity *</label>
+      <input type="number" id="stock_quantity" name="stock_quantity" required min="0" />
+    </div>
+
+    <div>
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" maxlength="100" />
+    </div>
+
+    <button type="submit">Save Product</button>
+  </form>
+
+  <div id="status" role="status" aria-live="polite"></div>
+
+  <hr />
+
+  <h2>Products (Newest first)</h2>
+  <button id="refreshBtn" type="button">Refresh</button>
+  <table id="productsTable" border="1" cellspacing="0" cellpadding="6">
+    <thead>
+      <tr>
+        <th>product_id</th>
+        <th>provider_id</th>
+        <th>product_name</th>
+        <th>product_description</th>
+        <th>price</th>
+        <th>stock_quantity</th>
+        <th>category</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('productForm');
+    const statusEl = document.getElementById('status');
+    const tableBody = document.querySelector('#productsTable tbody');
+    const refreshBtn = document.getElementById('refreshBtn');
+
+    async function fetchProducts() {
+      try {
+        const res = await fetch('api/get_products.php', { cache: 'no-store' });
+        const data = await res.json();
+        renderRows(data.products || []);
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = 'Failed to load products.';
+      }
+    }
+
+    function renderRows(products) {
+      tableBody.innerHTML = '';
+      for (const p of products) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${p.product_id}</td>
+          <td>${p.provider_id}</td>
+          <td>${escapeHtml(p.product_name)}</td>
+          <td>${escapeHtml(p.product_description || '')}</td>
+          <td>${p.price}</td>
+          <td>${p.stock_quantity}</td>
+          <td>${escapeHtml(p.category || '')}</td>
+          <td>${p.created_at}</td>
+          <td>${p.updated_at}</td>
+        `;
+        tableBody.appendChild(tr);
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = 'Saving...';
+
+      const payload = {
+        provider_id: Number(document.getElementById('provider_id').value),
+        product_name: document.getElementById('product_name').value.trim(),
+        product_description: document.getElementById('product_description').value.trim(),
+        price: document.getElementById('price').value,
+        stock_quantity: Number(document.getElementById('stock_quantity').value),
+        category: document.getElementById('category').value.trim()
+      };
+
+      try {
+        const res = await fetch('api/add_product.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         });
+        const data = await res.json();
 
-        document.getElementById('add-product-form').addEventListener('submit', (event) => {
-            event.preventDefault();
+        if (data.success) {
+          statusEl.textContent = 'Product saved.';
+          form.reset();
+          await fetchProducts(); // refresh table so it stays in sync
+        } else {
+          statusEl.textContent = 'Error: ' + (data.error || 'Unknown error');
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = 'Network or server error.';
+      }
+    });
 
-            const formData = new FormData(event.target);
-            const name = formData.get('name');
-            const description = formData.get('description');
-            const price = formData.get('price');
-            const images = formData.getAll('images[]');
+    refreshBtn.addEventListener('click', fetchProducts);
 
-            console.log('Product Name:', name);
-            console.log('Description:', description);
-            console.log('Price:', price);
-            console.log('Images:', images);
-
-            alert('Product added successfully! (Check console for data)');
-            event.target.reset();
-            imagePreviewContainer.innerHTML = '';
-        });
-    </script>
+    // Initial load + optional periodic refresh to keep “synced”
+    fetchProducts();
+    // setInterval(fetchProducts, 10000); // uncomment to auto-refresh every 10s
+  </script>
 </body>
 </html>
