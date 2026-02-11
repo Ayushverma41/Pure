@@ -1,52 +1,32 @@
-/* COMBINED AND THEME-ADAPTIVE CSS */
+/* ========================================= */
+/* PROFESSIONAL LUXURY JEWELRY THEME CSS */
+/* ========================================= */
 
-/* ------------------------------------------------ */
-/* 1. CUSTOM PROPERTIES (VARIABLES)        */
-/* ------------------------------------------------ */
+/* ---------- 1. ROOT VARIABLES ---------- */
 
 :root {
-    /* Default (Light) Theme */
-    --main-bg-color: #f8f8f8;
-    --secondary-bg-color: #fff;
-    --primary-text-color: #000;
-    --secondary-text-color: #555;
-    --accent-color: #ff523b;
-    --accent-hover-color: #e64a19;
-    --hero-h1-color: rgb(7, 98, 49);
-    --hero-p-color: black;
-    --link-color: #000;
-    --link-hover-color: #ff523b;
-    --footer-bg-color: #000;
-    --footer-text-color: #8a8a8a;
-    --table-header-bg: #dac259;
-    --table-header-text: #fff;
-    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --main-bg-color: #f9f9f9;
+    --secondary-bg-color: #ffffff;
+    --primary-text-color: #1a1a1a;
+    --secondary-text-color: #777;
+
+    /* Luxury Gold Theme */
+    --accent-color: #c9a227;
+    --accent-hover-color: #a8821f;
+
+    --hero-h1-color: #ffffff;
+    --hero-p-color: #f1f1f1;
+
+    --link-color: #1a1a1a;
+    --link-hover-color: #c9a227;
+
+    --footer-bg-color: #111;
+    --footer-text-color: #bbb;
+
+    --box-shadow-color: rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        /* Dark Theme overrides */
-        --main-bg-color: #121212;
-        --secondary-bg-color: #1e1e1e;
-        --primary-text-color: #fff;
-        --secondary-text-color: #b0b0b0;
-        --accent-color: #e91e63;
-        --accent-hover-color: #c2185b;
-        --hero-h1-color: #00e676;
-        --hero-p-color: #eee;
-        --link-color: #8e8e8e;
-        --link-hover-color: #e91e63;
-        --footer-bg-color: #000;
-        --footer-text-color: #8a8a8a;
-        --table-header-bg: #4caf50;
-        --table-header-text: #fff;
-        --box-shadow-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
-/* ------------------------------------------------ */
-/* 2. BASE STYLES                    */
-/* ------------------------------------------------ */
+/* ---------- 2. BASE STYLES ---------- */
 
 * {
     margin: 0;
@@ -58,318 +38,291 @@ body {
     font-family: "Poppins", sans-serif;
     background-color: var(--main-bg-color);
     color: var(--primary-text-color);
-    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
     color: var(--link-color);
+    transition: 0.3s ease;
 }
 
 a:hover {
     color: var(--link-hover-color);
 }
 
-p, small, h3, h4 {
-    color: var(--primary-text-color);
-}
-
-/* ------------------------------------------------ */
-/* 3. COMPONENT STYLES                 */
-/* ------------------------------------------------ */
-
-.navbar {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    justify-content: space-between;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin: 0 10px;
-}
-
-.search-bar input[type="text"] {
-    padding: 10px 15px;
-    border: 1px solid var(--secondary-text-color);
-    border-radius: 30px;
-    width: 300px;
-    font-size: 20px;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-.search-bar button {
-    background-color: var(--accent-color);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 13px;
-    margin-left: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-
-.search-bar button:hover {
-    background-color: var(--accent-hover-color);
-}
-
-nav {
-    flex: 1;
-    text-align: right;
-}
-
-nav ul {
-    display: inline-block;
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+ul {
+    list-style: none;
 }
 
 .container {
     max-width: 1400px;
     margin: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.hero {
-    background-image: url('image/Background.png'); /* Note: This is a static image, it will not change with the theme */
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: #fff;
-    border-radius: 20px;
-    padding: 300px 0;
-}
-
-.hero h1 {
-    font-family: 'Courier Bold';
-    font-size: 40px;
-    margin-bottom: 20px;
-    color: var(--hero-h1-color);
-}
-
-.hero p {
-    font-family: 'Futuring Bold';
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: var(--hero-p-color);
-}
-
-.btn {
-    font-size: 18px;
-    display: inline-block;
-    background: #ffc900;
-    color: #000;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
-    transition: background 0.5s;
-}
-
-.btn:hover {
-    background: rgba(255, 255, 255, 0.944);
-}
-
-.header {
-    background: radial-gradient(#fff, #f8f5aed4);
-}
-
-.categories {
-    margin: 60px 0px 0px 0px;
+    padding: 0 20px;
 }
 
 .small-container {
-    max-width: 1080px;
+    max-width: 1100px;
     margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 0 20px;
 }
+
+/* ---------- 3. NAVBAR ---------- */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+nav ul li a {
+    position: relative;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-color);
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 250px;
+    background: var(--secondary-bg-color);
+}
+
+.search-bar button {
+    margin-left: 8px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-bar button:hover {
+    background: var(--accent-hover-color);
+}
+
+/* ---------- 4. HERO SECTION ---------- */
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("image/Background.png");
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    border-radius: 0 0 40px 40px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--hero-h1-color);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: var(--hero-p-color);
+    margin-bottom: 30px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn {
+    font-size: 16px;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--accent-hover-color);
+    transform: translateY(-3px);
+}
+
+/* ---------- 5. SECTION TITLES ---------- */
 
 .title {
     text-align: center;
-    margin: 0 auto 50px;
+    margin: 80px 0 50px;
+    font-size: 28px;
+    font-weight: 600;
     position: relative;
-    line-height: 60px;
-    color: var(--primary-text-color);
 }
 
 .title::after {
-    content: '';
-    background: var(--hero-h1-color);
+    content: "";
     width: 80px;
-    height: 6px;
-    border-radius: 6px;
+    height: 4px;
+    background: var(--accent-color);
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
+/* ---------- 6. GRID ROW ---------- */
+
 .row {
     display: flex;
-    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-.col-3 {
-    flex-basis: 35%;
-    min-width: 250px;
-    margin-bottom: 30px;
-    width: 33.33%;
-    padding: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    box-shadow: 0 0 20px 0px var(--box-shadow-color);
-    background-color: var(--secondary-bg-color);
-    transition: transform 0.5s;
-}
-
-.col-3 img {
-    width: 260px;
-    height: 280px;
-    border-radius: 15px;
-}
+/* ---------- 7. PRODUCT CARDS ---------- */
 
 .col-4 {
-    flex-basis: 100%;
-    padding: 10px;
-    min-width: 200px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-bottom: 50px;
-    transition: transform 0.5s;
-    background-color: var(--secondary-bg-color);
-    box-shadow: 0 0 20px 0px var(--box-shadow-color);
+    background: var(--secondary-bg-color);
+    padding: 20px;
+    width: 240px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--box-shadow-color);
+    transition: 0.3s ease;
+}
+
+.col-4:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
 
 .col-4 img {
     width: 100%;
     height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-h4 {
-    color: var(--primary-text-color);
-    font-weight: normal;
-}
-
-.rating .fa {
-    color: orange;
+.col-4 h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
 .col-4 p {
-    font-size: 14px;
-    color: var(--primary-text-color);
-}
-
-.col-4:hover, .col-3:hover {
-    transform: translateY(-10px);
-}
-
-/*--------------offer--------------*/
-.offer {
-    background-color: var(--secondary-bg-color);
-    margin-top: 50px;
-    padding: 10px 0;
-}
-
-.col-2 {
-    flex-basis: 100%;
-    margin-top: 30px;
-    padding: 50px;
-}
-
-.col-2 .offer-img {
-    height: 500px;
-    width: 500px;
-}
-
-small {
-    color: var(--secondary-text-color);
-}
-
-/*------------testimonial-----------*/
-.testimonial {
-    padding-top: 100px;
-}
-
-.testimonial .col-3 {
-    text-align: center;
-    padding: 40px 20px;
-    box-shadow: 0 0 20px 0px var(--box-shadow-color);
-    cursor: pointer;
-    transition: transform 0.5s;
-    background-color: var(--secondary-bg-color);
-}
-
-.testimonial .col-3 img {
-    width: 80px;
-    height: 80px;
-    margin-top: 20px;
-    border-radius: 50%;
-}
-
-.fa.fa-quote-left {
-    font-size: 34px;
+    font-size: 16px;
+    font-weight: 600;
     color: var(--accent-color);
 }
 
-.col-3 p {
-    font-size: 12px;
-    margin: 12px 0;
-    color: var(--secondary-text-color);
+/* ---------- RATINGS ---------- */
+
+.rating .fa {
+    color: #f4c150;
+    margin-right: 2px;
 }
 
-.testimonial .col-3 h3 {
-    font-weight: 600;
-    color: var(--secondary-text-color);
-    font-size: 16px;
+/* ---------- 8. OFFER SECTION ---------- */
+
+.offer {
+    background: var(--secondary-bg-color);
+    padding: 80px 0;
 }
 
-/*---------------brands----------------*/
+.col-2 {
+    flex: 1;
+    padding: 20px;
+}
+
+.offer-img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+
+/* ---------- 9. TESTIMONIALS ---------- */
+
+.testimonial {
+    padding: 80px 0;
+}
+
+.testimonial .col-3 {
+    background: var(--secondary-bg-color);
+    padding: 30px;
+    width: 280px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--box-shadow-color);
+    transition: 0.3s;
+}
+
+.testimonial .col-3:hover {
+    transform: translateY(-8px);
+}
+
+.testimonial img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 15px;
+}
+
+/* ---------- 10. BRANDS ---------- */
+
 .brands {
+    padding: 60px 0;
     display: flex;
-    margin: 50px 50px 30px 50px;
-}
-
-.col-5 {
-    width: 130px;
-    flex-basis: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .col-5 img {
-    width: 100px;
-    cursor: pointer;
+    width: 90px;
     filter: grayscale(100%);
-    transition: filter 0.3s;
+    transition: 0.3s;
 }
 
 .col-5 img:hover {
     filter: grayscale(0);
 }
 
-/*-----------------footer----------------*/
+/* ---------- 11. FOOTER ---------- */
+
 .footer {
     background: var(--footer-bg-color);
     color: var(--footer-text-color);
-    font-size: 14px;
-    padding: 60px 0 20px;
-}
-
-.footer p {
-    color: var(--footer-text-color);
+    padding: 80px 0 30px;
 }
 
 .footer h3 {
@@ -377,340 +330,64 @@ small {
     margin-bottom: 20px;
 }
 
-.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
-    min-width: 250px;
-    margin-bottom: 20px;
+.footer p {
+    font-size: 14px;
 }
 
-.footer-col-1 {
-    flex-basis: 30%;
-}
-
-.footer-col-2 {
-    margin-top: 0;
+.footer-col-1,
+.footer-col-2,
+.footer-col-3,
+.footer-col-4 {
     flex: 1;
-    text-align: center;
-}
-
-.footer-col-2 img {
-    width: 100px;
+    min-width: 200px;
     margin-bottom: 20px;
-}
-
-.footer-col-3, .footer-col-4 {
-    flex-basis: 12%;
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-}
-
-.app-logo {
-    margin-top: 20px;
-}
-
-.app-logo img {
-    width: 140px;
 }
 
 .footer hr {
+    margin: 30px 0;
     border: none;
-    background: var(--footer-text-color);
     height: 1px;
-    margin: 20px 0;
+    background: #333;
 }
 
 .Copyright {
     text-align: center;
+    font-size: 13px;
 }
 
-.menu-icon {
-    width: 28px;
-    margin-left: 20px;
-    display: none;
-}
+/* ---------- 12. RESPONSIVE ---------- */
 
-/*-----------------All products-------------------*/
-.row-2 {
-    justify-content: space-between;
-    margin: 100px auto 50px;
-}
-
-select {
-    border: 1px solid var(--accent-color);
-    padding: 5px;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-select:focus {
-    outline: none;
-}
-
-.page-btn {
-    margin: 0 auto 80px;
-}
-
-.page-btn span {
-    display: inline-block;
-    border: 2px solid var(--accent-color);
-    margin-left: 10px;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-.page-btn span:hover {
-    background: var(--accent-color);
-    color: #fff;
-}
-
-/*--------------media query for menu-----------------*/
-@media only screen and (max-width: 800px) {
-    nav ul {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background: var(--secondary-bg-color);
-        width: 100%;
-        overflow: hidden;
-        transition: max-height 0.6s;
-    }
-
-    nav ul li {
-        display: block;
-        margin-right: 50px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    nav ul li a {
-        color: var(--primary-text-color);
-    }
-
-    .menu-icon {
-        display: block;
-        cursor: pointer;
-    }
-}
-
-/*-------------single product details----------------*/
-.single-product {
-    margin-top: 80px;
-}
-
-.single-product .col-2 {
-    padding: 20px;
-}
-
-.single-product .col-2 img {
-    padding: 0;
-}
-
-.single-product h4 {
-    margin: 20px 0;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.single-product select {
-    display: block;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-.single-product input {
-    width: 50px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 20px;
-    margin-right: 10px;
-    border: 1px solid var(--accent-color);
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-input:focus {
-    outline: none;
-}
-
-.single-product .fa {
-    color: var(--accent-color);
-    margin-left: 10px;
-}
-
-.small-img-row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.small-img-col {
-    flex-basis: 150px;
-    padding: 5px;
-    cursor: pointer;
-}
-
-/*---------------Cart Item Details------------------*/
-.cart-page {
-    margin: 80px auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.cart-info {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-th {
-    text-align: left;
-    padding: 5px;
-    color: var(--table-header-text);
-    background: var(--table-header-bg);
-    font-weight: normal;
-}
-
-td {
-    padding: 10px 5px;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-td input {
-    width: 40px;
-    height: 30px;
-    padding: 5px;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-text-color);
-}
-
-td a {
-    color: var(--accent-color);
-    font-size: 12px;
-}
-
-td img {
-    width: 80px;
-    height: 80px;
-    margin-right: 10px;
-}
-
-.total-price {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.total-price table {
-    border-top: 3px solid var(--accent-color);
-    width: 100%;
-    max-width: 300px;
-}
-
-td:last-child {
-    text-align: right;
-}
-
-th:last-child {
-    text-align: right;
-}
-
-/*--------------media query for less than 600px screen size-----------------*/
-@media only screen and (max-width: 800px) {
-    .row {
-        text-align: center;
-    }
-
-    .col-2, .col-3, .col-4 {
-        flex-basis: auto;
-        width: 100%;
-    }
-
-    .single-product .row {
-        text-align: left;
-    }
-
-    .single-product .col-2 {
-        padding: 20px 0;
-    }
-
-    .single-product h1 {
-        font-size: 26px;
-        line-height: 32px;
-    }
-}
-
-/* Additional mobile optimizations */
-@media only screen and (max-width: 600px) {
+@media (max-width: 992px) {
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 15px;
     }
 
-    .search-bar {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .search-bar input[type="text"] {
-        width: 80%;
-        font-size: 16px;
-    }
-
-    .search-bar button {
-        padding: 10px;
-    }
-
-    .hero {
-        padding: 100px 20px;
+    .search-bar input {
+        width: 200px;
     }
 
     .hero h1 {
-        font-size: 28px;
+        font-size: 36px;
     }
 
     .hero p {
         font-size: 16px;
     }
+}
 
+@media (max-width: 768px) {
     .row {
         flex-direction: column;
         align-items: center;
     }
 
-    .col-3 img, .col-4 img {
+    .col-4,
+    .testimonial .col-3 {
         width: 90%;
-        height: auto;
-    }
-
-    .col-2 .offer-img {
-        width: 100%;
-        height: auto;
     }
 
     .brands {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .col-5 img {
-        width: 60px;
-    }
-
-    .footer {
-        text-align: center;
-    }
-
-    .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
-        flex-basis: 100%;
+        gap: 20px;
     }
 }
