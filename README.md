@@ -24,7 +24,6 @@ This project was created as a learning and demonstration tool for building basic
 
 - HTML  
 - CSS  
-- JavaScript  
 
 ## 📝 License
 
