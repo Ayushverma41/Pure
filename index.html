@@ -1,86 +1,51 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PURE | Dashboard</title>
+  <title>PURE | Choose Your Portal</title>
   <link rel="icon" href="image/logo/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-  <div class="loader"><div class="loader-ring"></div></div>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="Pure"><span>PURE</span></a>
-      <nav class="nav-links">
-        <a class="active" href="index.html">Dashboard</a>
-        <a href="products.html">Collections</a>
-        <a href="product.html">Product</a>
-        <a href="cart.html">Cart (<span data-cart-count>0</span>)</a><a href="account.html">Account</a>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">
+        <img src="image/logo/Logo.png" alt="PURE">
+        PURE
+      </a>
+      <nav>
+        <a href="buyer.html">Buyer Portal</a>
+        <a href="seller-login.html">Seller Portal</a>
       </nav>
-      <div class="actions">
-        <button id="themeToggle" class="btn-ghost">Dark</button>
-        <a class="btn-primary btn-design" href="design.html">Design Your Own Jewelry</a>
-      </div>
     </div>
   </header>
 
-  <main>
-    <section class="container hero">
-      <div>
-        <p class="hero-kicker">Fine Gold Collection</p>
-        <h1>Pure As Love,<br>Crafted For Every Story</h1>
-        <p>Discover rings, pendants, earrings, and bangles with premium finish. Explore a clean luxury experience with smooth animations and fast cart flow.</p>
-        <div class="row" style="justify-content:flex-start;gap:12px;">
-          <a class="btn-primary btn-hero-main" href="products.html">Explore Collection</a>
-          <a class="btn-ghost btn-hero-alt" href="cart.html">Go to Cart</a>
-        </div>
-        <div class="chips">
-          <span class="chip">22KT Gold Styles</span>
-          <span class="chip">BIS Inspired Finish</span>
-          <span class="chip">Secure Checkout Ready</span>
-        </div>
-      </div>
-      <article class="hero-card">
-        <img src="image/Offer/offer.png" alt="Featured ring">
-      </article>
+  <main class="container hero">
+    <section class="intro">
+      <p class="kicker">Jewelry Marketplace</p>
+      <h1>One Website, Two Dedicated Workflows</h1>
+      <p class="lead">Buyers and sellers use separate pages with separate UI scripts and styles, while staying connected on one platform.</p>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="promo-band">
-          <h3>PURE Signature Drops</h3>
-          <p>Limited-release gold jewelry with handcrafted finish and curated luxury styling.</p>
-        </div>
-        <div class="section-head">
-          <div>
-            <p class="hero-kicker">Trending Picks</p>
-            <h2>Featured Products</h2>
-          </div>
-          <a href="products.html" class="btn-ghost">View All</a>
-        </div>
-        <div class="grid" id="featuredGrid"></div>
-      </div>
+    <section class="portals">
+      <article class="portal-card buyer">
+        <h2>Buyer Flow</h2>
+        <p>Discover products, view details, manage cart, and place orders.</p>
+        <a class="btn" href="buyer.html">Enter Buyer Portal</a>
+      </article>
+
+      <article class="portal-card seller">
+        <h2>Seller Flow</h2>
+        <p>Manage listings, inventory updates, and order requests from one dashboard.</p>
+        <a class="btn" href="seller-login.html">Enter Seller Portal</a>
+      </article>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>Copyright 2026 PURE</div>
-      <div>Theme: White/Yellow/Black and Black/Yellow/Grey</div>
-    </div>
-  </footer>
-  <div id="toast" class="toast">Added to cart</div>
-
-  <script src="products.js"></script>
-  <script src="script.js"></script>
+  <script src="landing.js"></script>
 </body>
 </html>
-
-
-
-
-

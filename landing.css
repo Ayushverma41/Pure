@@ -1,0 +1,59 @@
+:root {
+  --bg: #f8f2e9;
+  --paper: #fffdf9;
+  --ink: #1d1712;
+  --muted: #6e655f;
+  --line: #e6dac9;
+  --gold: #be8d3d;
+  --deep: #1f1811;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 0%, #fff0d2 0%, transparent 35%), var(--bg);
+}
+
+.container { width: min(1080px, 92vw); margin: 0 auto; }
+.topbar { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 92%, transparent); }
+.topbar-inner { min-height: 74px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; letter-spacing: .04em; }
+.brand img { width: 34px; height: 34px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); }
+nav { display: flex; gap: 14px; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--muted); font-weight: 700; }
+nav a:hover { color: var(--ink); }
+
+.hero { padding: 54px 0 32px; }
+.kicker { margin: 0; text-transform: uppercase; letter-spacing: .08em; color: #2b6753; font-weight: 700; font-size: .82rem; }
+h1, h2 { font-family: "Playfair Display", serif; margin: 0; }
+h1 { margin-top: 10px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; }
+.lead { color: var(--muted); max-width: 62ch; }
+
+.portals { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.portal-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+  background: var(--paper);
+  box-shadow: 0 10px 28px rgba(34, 24, 12, 0.08);
+}
+.portal-card p { color: var(--muted); }
+.portal-card.buyer { background: linear-gradient(140deg, #fffdfa, #f6efe5); }
+.portal-card.seller { background: linear-gradient(140deg, #f6efe4, #f0e2cf); }
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: linear-gradient(120deg, var(--gold), #e1bc75);
+  color: var(--deep);
+}
+
+@media (max-width: 760px) {
+  .topbar-inner { flex-wrap: wrap; padding: 10px 0; }
+  .portals { grid-template-columns: 1fr; }
+}

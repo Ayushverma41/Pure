@@ -32,6 +32,28 @@ function getProductById(id) {
   return PRODUCTS.find((p) => p.id === id);
 }
 
+async function syncProductsFromApi() {
+  const db = window.PureDB && window.PureDB.read ? window.PureDB.read() : { products: [] };
+  const incoming = Array.isArray(db.products) ? db.products : [];
+  if (!incoming.length) return;
+  const map = new Map(PRODUCTS.map((p) => [p.id, p]));
+  incoming.forEach((p) => {
+    if (!p || !p.id) return;
+    const normalized = {
+      id: String(p.id),
+      name: String(p.name || "Untitled Product"),
+      category: String(p.category || "Other"),
+      price: Number(p.price || 0),
+      image: String(p.image || "image/Offer/01.png"),
+      gallery: Array.isArray(p.gallery) && p.gallery.length ? p.gallery : [String(p.image || "image/Offer/01.png")],
+      rating: Number(p.rating || 4.5),
+      desc: String(p.desc || "Seller listed product.")
+    };
+    map.set(normalized.id, normalized);
+  });
+  PRODUCTS = [...map.values()];
+}
+
 function stars(rating) {
   const full = Math.floor(rating);
   const half = rating - full >= 0.5 ? 1 : 0;
@@ -203,7 +225,8 @@ function initCartPage() {
   };
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await syncProductsFromApi();
   initPageFx();
   initTheme();
   updateCartCount();

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Seller Login</title>
+  <link rel="icon" href="image/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="seller-auth.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <a href="index.html" class="back-link">Back to Home</a>
+    <section class="auth-card">
+      <p class="kicker">Seller Authentication</p>
+      <h1>Sign In To Seller Dashboard</h1>
+      <p class="lead">Register new seller accounts, login, and reset password using local JSON data in browser storage.</p>
+
+      <div class="tabs">
+        <button class="tab active" data-mode="login">Login</button>
+        <button class="tab" data-mode="register">Register</button>
+        <button class="tab" data-mode="forgot">Forgot Password</button>
+      </div>
+
+      <form id="sellerAuthForm" class="form" novalidate>
+        <label id="nameWrap" class="field hidden">
+          Full Name
+          <input id="nameInput" type="text" autocomplete="name" placeholder="Seller name">
+        </label>
+
+        <label class="field">
+          Email
+          <input id="emailInput" type="email" autocomplete="email" placeholder="seller@example.com" required>
+        </label>
+
+        <label class="field">
+          <span id="passwordLabel">Password</span>
+          <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Minimum 6 characters" required>
+        </label>
+
+        <button class="btn" id="submitBtn" type="submit">Login</button>
+      </form>
+
+      <p class="status" id="statusText">Use your seller account credentials.</p>
+    </section>
+  </main>
+
+  <script src="db.js"></script>
+  <script src="seller-auth.js"></script>
+</body>
+</html>

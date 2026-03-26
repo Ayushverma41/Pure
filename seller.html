@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Seller Portal</title>
+  <link rel="icon" href="image/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="seller.css">
+</head>
+<body>
+  <header class="seller-topbar">
+    <div class="seller-container seller-topbar-inner">
+      <a class="seller-brand" href="index.html">
+        <img src="image/logo/Logo.png" alt="PURE">
+        PURE
+      </a>
+      <nav class="seller-nav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#listings">Listings</a>
+        <a href="#orders">Orders</a>
+        <a href="buyer.html">Buyer Portal</a>
+        <a href="seller-login.html">Login</a>
+        <button class="seller-logout" id="sellerLogoutBtn" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="seller-container" id="dashboard">
+    <section class="seller-hero">
+      <div>
+        <p class="seller-kicker">Seller Workflow</p>
+        <h1>Manage Your Jewelry Storefront Separately</h1>
+        <p>Dedicated seller flow to publish products, monitor stock, and process orders without colliding with buyer pages.</p>
+      </div>
+      <div class="seller-hero-card">
+        <h2>This Week</h2>
+        <p>New Product Requests: <strong>14</strong></p>
+        <p>Pending Orders: <strong>6</strong></p>
+        <p>Profile Completion: <strong>92%</strong></p>
+      </div>
+    </section>
+
+    <section class="seller-section" id="listings">
+      <div class="seller-head">
+        <h2>Product Listing Control</h2>
+      </div>
+      <div class="seller-grid">
+        <article class="seller-card">
+          <h3>Add New Product</h3>
+          <p>Upload title, category, price, and photos.</p>
+          <button class="seller-btn" data-seller-action="add-product">Open Form</button>
+        </article>
+        <article class="seller-card">
+          <h3>Update Inventory</h3>
+          <p>Track low stock and product availability.</p>
+          <button class="seller-btn" data-seller-action="inventory">Manage Stock</button>
+        </article>
+        <article class="seller-card">
+          <h3>View Buyer Messages</h3>
+          <p>Reply to custom order and product queries.</p>
+          <button class="seller-btn" data-seller-action="messages">Open Inbox</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="seller-section" id="product-management">
+      <div class="seller-head">
+        <h2>Add / Update Products</h2>
+      </div>
+      <div class="seller-grid seller-form-grid">
+        <article class="seller-card">
+          <h3>Add New Product</h3>
+          <form id="addProductForm" class="seller-form">
+            <input id="addName" type="text" placeholder="Product name" required>
+            <input id="addCategory" type="text" placeholder="Category" required>
+            <input id="addPrice" type="number" min="1" placeholder="Price" required>
+            <input id="addImage" type="text" placeholder="Image path (optional)">
+            <input id="addDesc" type="text" placeholder="Description (optional)">
+            <button class="seller-btn" type="submit">Save Product</button>
+          </form>
+        </article>
+        <article class="seller-card">
+          <h3>Update Existing Product</h3>
+          <form id="updateProductForm" class="seller-form">
+            <input id="updateId" type="text" placeholder="Existing product ID" required>
+            <input id="updateName" type="text" placeholder="Updated name">
+            <input id="updateCategory" type="text" placeholder="Updated category">
+            <input id="updatePrice" type="number" min="1" placeholder="Updated price">
+            <input id="updateImage" type="text" placeholder="Updated image path">
+            <input id="updateDesc" type="text" placeholder="Updated description">
+            <button class="seller-btn" type="submit">Update Product</button>
+          </form>
+        </article>
+        <article class="seller-card">
+          <h3>Your Recently Managed Products</h3>
+          <ul id="sellerProductsList" class="seller-list"></ul>
+          <form id="removeProductForm" class="seller-form">
+            <input id="removeId" type="text" placeholder="Product ID to remove" required>
+            <button class="seller-btn" type="submit">Remove Product</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="seller-section" id="orders">
+      <div class="seller-head">
+        <h2>Recent Orders</h2>
+      </div>
+      <div class="seller-table-wrap">
+        <table class="seller-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Buyer</th>
+              <th>Product</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#PZ-2101</td>
+              <td>Shreya N.</td>
+              <td>Temple Ring</td>
+              <td><span class="status status-new">New</span></td>
+            </tr>
+            <tr>
+              <td>#PZ-2102</td>
+              <td>Rahul K.</td>
+              <td>Kundan Necklace</td>
+              <td><span class="status status-pack">Packed</span></td>
+            </tr>
+            <tr>
+              <td>#PZ-2103</td>
+              <td>Megha P.</td>
+              <td>Jhumka Pair</td>
+              <td><span class="status status-ship">Shipped</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="seller-toast" id="sellerToast">Action panel placeholder</div>
+  <script src="db.js"></script>
+  <script src="seller.js"></script>
+</body>
+</html>

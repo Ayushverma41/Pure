@@ -1,0 +1,8 @@
+.buyer-hero .hero-card {
+  min-height: 320px;
+}
+
+.buyer-actions {
+  justify-content: flex-start;
+  gap: 12px;
+}

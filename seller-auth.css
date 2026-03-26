@@ -1,0 +1,100 @@
+:root {
+  --bg: #f5ede2;
+  --paper: #fffaf3;
+  --ink: #211911;
+  --muted: #6b6159;
+  --line: #deccb5;
+  --gold: #bc8a35;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 0% 0%, #ffeecd 0%, transparent 38%), var(--bg);
+}
+
+.auth-shell { width: min(560px, 92vw); }
+.back-link { color: var(--muted); text-decoration: none; font-weight: 700; }
+.auth-card {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+  padding: 26px;
+  box-shadow: 0 12px 28px rgba(46, 31, 16, 0.08);
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #27584a;
+  font-size: .78rem;
+  font-weight: 700;
+}
+h1 {
+  margin: 8px 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+.lead { color: var(--muted); margin-bottom: 14px; }
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+.tab {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px;
+  font: inherit;
+  font-weight: 700;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.tab.active {
+  color: #211405;
+  background: linear-gradient(120deg, var(--gold), #dfbd7a);
+}
+
+.form { margin-top: 14px; display: grid; gap: 10px; }
+.field { display: grid; gap: 6px; font-weight: 600; font-size: .93rem; color: var(--muted); }
+.field input {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+.hidden { display: none; }
+
+.btn {
+  margin-top: 4px;
+  border: 0;
+  border-radius: 999px;
+  padding: 11px 14px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  background: linear-gradient(120deg, var(--gold), #e1bc75);
+  color: #271b0e;
+}
+
+.status {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+.status.error { color: #8a2b2b; }
+.status.success { color: #2e6d38; }

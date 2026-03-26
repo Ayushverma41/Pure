@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Buyer Portal</title>
+  <link rel="icon" href="image/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="buyer.css">
+</head>
+<body>
+  <div class="loader"><div class="loader-ring"></div></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="PURE"><span>PURE</span></a>
+      <nav class="nav-links">
+        <a class="active" href="buyer.html">Buyer Home</a>
+        <a href="products.html">Collections</a>
+        <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        <a href="account.html">Account</a>
+        <a href="seller-login.html">Seller Portal</a>
+      </nav>
+      <div class="actions">
+        <button id="themeToggle" class="btn-ghost">Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero buyer-hero">
+      <div>
+        <p class="hero-kicker">Buyer Marketplace</p>
+        <h1>Discover Trusted Jewelry Makers In One Place</h1>
+        <p>Compare handcrafted jewelry from small sellers, review store ratings, and buy securely through one buyer-first flow.</p>
+        <div class="row buyer-actions">
+          <a class="btn-primary btn-hero-main" href="products.html">Explore Products</a>
+          <a class="btn-ghost btn-hero-alt" href="design.html">Custom Design</a>
+        </div>
+      </div>
+      <article class="hero-card">
+        <img src="image/Offer/offer.png" alt="Featured jewelry">
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="promo-band">
+          <h3>Trending Listings For Buyers</h3>
+          <p>Live products across rings, bangles, earrings, and pendants.</p>
+        </div>
+        <div class="section-head">
+          <div>
+            <p class="hero-kicker">Fresh Picks</p>
+            <h2>Featured Products</h2>
+          </div>
+          <a href="products.html" class="btn-ghost">View All</a>
+        </div>
+        <div class="grid" id="featuredGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>Buyer workflow is isolated in buyer pages.</div>
+      <div><a href="seller-login.html">Switch to Seller Portal</a></div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast">Added to cart</div>
+  <script src="buyer.js"></script>
+  <script src="products.js"></script>
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

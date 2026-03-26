@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -16,10 +16,12 @@
     <div class="container nav-inner">
       <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="Pure"><span>PURE</span></a>
       <nav class="nav-links">
-        <a href="index.html">Dashboard</a>
+        <a href="buyer.html">Buyer Home</a>
         <a href="products.html">Collections</a>
         <a href="product.html">Product</a>
-        <a class="active" href="cart.html">Cart (<span data-cart-count>0</span>)</a><a href="account.html">Account</a>
+        <a class="active" href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        <a href="account.html">Account</a>
+        <a href="seller-login.html">Seller Portal</a>
       </nav>
       <div class="actions"><button id="themeToggle" class="btn-ghost">Dark</button></div>
     </div>
@@ -29,7 +31,7 @@
     <div class="container">
       <div class="section-head">
         <h2>Your Cart</h2>
-        <div class="row" style="justify-content:flex-start;">
+        <div class="row row-start">
           <a class="btn-ghost" href="products.html">Add More</a>
           <button id="clearCart" class="btn-primary">Clear Cart</button>
         </div>
@@ -51,8 +53,8 @@
       <div class="cart-total">
         <div class="total-box">
           <div class="row"><span>Subtotal</span><strong id="subTotal"></strong></div>
-          <div class="row"><span>Shipping</span><strong id="shipping">₹0</strong></div>
-          <hr style="border:none;border-top:1px solid var(--line);margin:12px 0">
+          <div class="row"><span>Shipping</span><strong id="shipping">?0</strong></div>
+          <hr class="cart-divider">
           <div class="row"><span>Grand Total</span><strong id="grandTotal"></strong></div>
         </div>
       </div>
@@ -61,6 +63,7 @@
   <div id="toast" class="toast">Added to cart</div>
 
   <script src="products.js"></script>
+  <script src="db.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

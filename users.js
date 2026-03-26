@@ -1,13 +1,4 @@
-﻿const USER_STORE_KEY = "pure_users_v1";
 const SESSION_KEY = "pure_user_session_v1";
-
-function readUsers() {
-  return JSON.parse(localStorage.getItem(USER_STORE_KEY) || '{"buyer":[],"seller":[]}');
-}
-
-function writeUsers(data) {
-  localStorage.setItem(USER_STORE_KEY, JSON.stringify(data));
-}
 
 function normalizeEmail(v) {
   return String(v || "").trim().toLowerCase();
@@ -25,15 +16,16 @@ function clearSession() {
   localStorage.removeItem(SESSION_KEY);
 }
 
+function hashPassword(password) {
+  return btoa(unescape(encodeURIComponent(String(password || ""))));
+}
+
 function initUserManager() {
   const page = document.getElementById("accountPage");
   if (!page) return;
 
-  let role = "buyer";
   let mode = "login";
 
-  const roleSwitch = document.getElementById("roleSwitch");
-  const roleBtns = [...page.querySelectorAll(".role-btn")];
   const modeTitle = document.getElementById("modeTitle");
   const modeHeading = document.getElementById("modeHeading");
   const emailInput = document.getElementById("authEmail");
@@ -42,12 +34,6 @@ function initUserManager() {
   const mainBtn = document.getElementById("mainActionBtn");
   const afterLogin = document.getElementById("afterLoginPanel");
   const status = document.getElementById("authStatus");
-
-  const setRole = (next) => {
-    role = next;
-    roleBtns.forEach((b) => b.classList.toggle("active", b.dataset.role === next));
-    roleSwitch.classList.toggle("seller", next === "seller");
-  };
 
   const setMode = (next) => {
     mode = next;
@@ -71,46 +57,57 @@ function initUserManager() {
     }
   };
 
-  const findUserIndex = (list, email) => list.findIndex((u) => u.email === email);
-
   mainBtn.addEventListener("click", () => {
     const email = normalizeEmail(emailInput.value);
     const password = passInput.value;
     if (!email) return showToast("Email required");
     if (!password) return showToast("Password required");
 
-    const data = readUsers();
-    data.buyer = Array.isArray(data.buyer) ? data.buyer : [];
-    data.seller = Array.isArray(data.seller) ? data.seller : [];
-    const list = data[role];
-    const idx = findUserIndex(list, email);
+    try {
+      mainBtn.disabled = true;
+      const db = window.PureDB.read();
+      const users = db.buyers;
+      const idx = users.findIndex((u) => normalizeEmail(u.email) === email);
 
-    if (mode === "register") {
-      if (idx !== -1) return showToast("User already exists");
-      list.push({ email, password, createdAt: Date.now(), updatedAt: Date.now() });
-      writeUsers(data);
-      showToast("User created");
-      setMode("login");
-      return;
+      if (mode === "register") {
+        if (idx !== -1) throw new Error("Buyer already exists");
+        users.push({
+          id: window.PureDB.id("buyer"),
+          name: "Buyer",
+          email,
+          password_hash: hashPassword(password),
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        });
+        window.PureDB.write(db);
+        showToast("Buyer account created");
+        setMode("login");
+        passInput.value = "";
+        return;
+      }
+
+      if (mode === "forgot") {
+        if (idx === -1) throw new Error("Buyer not found");
+        users[idx].password_hash = hashPassword(password);
+        users[idx].updated_at = new Date().toISOString();
+        window.PureDB.write(db);
+        showToast("Password updated");
+        setMode("login");
+        passInput.value = "";
+        return;
+      }
+
+      if (idx === -1) throw new Error("Buyer not found");
+      if (users[idx].password_hash !== hashPassword(password)) throw new Error("Invalid email or password");
+      setSession({ role: "buyer", email, loginAt: Date.now() });
+      afterLogin.style.display = "block";
+      status.textContent = `Logged in as buyer: ${email}`;
+      showToast("Login success");
+    } catch (error) {
+      showToast(error.message || "Action failed");
+    } finally {
+      mainBtn.disabled = false;
     }
-
-    if (mode === "forgot") {
-      if (idx === -1) return showToast("User not found");
-      list[idx].password = password;
-      list[idx].updatedAt = Date.now();
-      writeUsers(data);
-      showToast("Password updated");
-      setMode("login");
-      return;
-    }
-
-    if (idx === -1) return showToast("User not found");
-    if (list[idx].password !== password) return showToast("Invalid password");
-
-    setSession({ role, email, loginAt: Date.now() });
-    afterLogin.style.display = "block";
-    status.textContent = `Logged in as ${role}: ${email}`;
-    showToast("Login success");
   });
 
   page.querySelectorAll("[data-mode]").forEach((btn) => {
@@ -125,28 +122,25 @@ function initUserManager() {
 
   document.getElementById("deleteAccountBtn").addEventListener("click", () => {
     const session = getSession();
-    if (!session) return showToast("Login first");
-    const data = readUsers();
-    const list = data[session.role] || [];
-    const idx = findUserIndex(list, session.email);
-    if (idx === -1) return showToast("User not found");
-    list.splice(idx, 1);
-    writeUsers(data);
-    clearSession();
-    afterLogin.style.display = "none";
-    showToast("Account deleted");
+    if (!session || session.role !== "buyer") return showToast("Login first");
+    try {
+      const db = window.PureDB.read();
+      db.buyers = db.buyers.filter((u) => normalizeEmail(u.email) !== normalizeEmail(session.email));
+      window.PureDB.write(db);
+      clearSession();
+      afterLogin.style.display = "none";
+      showToast("Account deleted");
+    } catch (error) {
+      showToast(error.message || "Delete failed");
+    }
   });
 
-  roleBtns.forEach((b) => b.addEventListener("click", () => setRole(b.dataset.role)));
-
   const session = getSession();
-  if (session && session.role && session.email) {
-    setRole(session.role);
+  if (session && session.role === "buyer" && session.email) {
     afterLogin.style.display = "block";
-    status.textContent = `Logged in as ${session.role}: ${session.email}`;
+    status.textContent = `Logged in as buyer: ${session.email}`;
   }
 
-  setRole("buyer");
   setMode("login");
 }
 

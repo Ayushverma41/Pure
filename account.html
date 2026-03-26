@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -16,31 +16,26 @@
     <div class="container nav-inner">
       <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="PURE"><span>PURE</span></a>
       <nav class="nav-links">
-        <a href="index.html">Dashboard</a>
+        <a href="buyer.html">Buyer Home</a>
         <a href="products.html">Collections</a>
         <a href="product.html">Product</a>
         <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
         <a class="active" href="account.html">Account</a>
+        <a href="seller-login.html">Seller Portal</a>
       </nav>
       <div class="actions"><button id="themeToggle" class="btn-ghost">Dark</button></div>
     </div>
   </header>
 
   <main class="section" id="accountPage">
-    <div class="container" style="max-width:680px;">
+    <div class="container account-container">
       <div class="promo-band">
         <h3>PURE Login</h3>
-        <p>Simple dummy login flow stored in localStorage.</p>
+        <p>Buyer account flow stored in local JSON database inside browser storage.</p>
       </div>
 
       <section class="auth-shell">
-        <div class="role-switch" id="roleSwitch">
-          <button type="button" class="role-btn active" data-role="buyer">Buyer</button>
-          <button type="button" class="role-btn" data-role="seller">Seller</button>
-          <span class="role-pill"></span>
-        </div>
-
-        <article class="design-panel" style="margin-bottom:14px;">
+        <article class="design-panel panel-gap">
           <p class="hero-kicker" id="modeTitle">Login</p>
           <h2 id="modeHeading">Welcome Back</h2>
 
@@ -60,10 +55,10 @@
           </div>
         </article>
 
-        <article class="design-panel" id="afterLoginPanel" style="display:none;">
+        <article class="design-panel hidden-panel" id="afterLoginPanel">
           <h2>Account Actions</h2>
           <p class="meta" id="authStatus">Logged in</p>
-          <div class="row" style="justify-content:flex-start;">
+          <div class="row row-start">
             <button type="button" class="btn-ghost" id="deleteAccountBtn">Delete Account</button>
             <button type="button" class="btn-primary" id="logoutBtn">Logout</button>
           </div>
@@ -74,6 +69,7 @@
 
   <div id="toast" class="toast">Saved</div>
   <script src="products.js"></script>
+  <script src="db.js"></script>
   <script src="script.js"></script>
   <script src="users.js"></script>
 </body>
