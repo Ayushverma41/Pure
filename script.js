@@ -32,7 +32,7 @@ function getProductById(id) {
   return PRODUCTS.find((p) => p.id === id);
 }
 
-async function syncProductsFromApi() {
+function syncProductsFromApi() {
   const db = window.PureDB && window.PureDB.read ? window.PureDB.read() : { products: [] };
   const incoming = Array.isArray(db.products) ? db.products : [];
   if (!incoming.length) return;
@@ -225,8 +225,8 @@ function initCartPage() {
   };
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await syncProductsFromApi();
+document.addEventListener("DOMContentLoaded", () => {
+  syncProductsFromApi();
   initPageFx();
   initTheme();
   updateCartCount();
