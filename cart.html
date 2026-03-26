@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Cart</title>
+  <link rel="icon" href="image/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loader"><div class="loader-ring"></div></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="Pure"><span>PURE</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Dashboard</a>
+        <a href="products.html">Collections</a>
+        <a href="product.html">Product</a>
+        <a class="active" href="cart.html">Cart (<span data-cart-count>0</span>)</a><a href="account.html">Account</a>
+      </nav>
+      <div class="actions"><button id="themeToggle" class="btn-ghost">Dark</button></div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Your Cart</h2>
+        <div class="row" style="justify-content:flex-start;">
+          <a class="btn-ghost" href="products.html">Add More</a>
+          <button id="clearCart" class="btn-primary">Clear Cart</button>
+        </div>
+      </div>
+
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+      </table>
+
+      <div class="cart-total">
+        <div class="total-box">
+          <div class="row"><span>Subtotal</span><strong id="subTotal"></strong></div>
+          <div class="row"><span>Shipping</span><strong id="shipping">₹0</strong></div>
+          <hr style="border:none;border-top:1px solid var(--line);margin:12px 0">
+          <div class="row"><span>Grand Total</span><strong id="grandTotal"></strong></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="toast" class="toast">Added to cart</div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

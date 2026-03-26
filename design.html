@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Design Studio</title>
+  <link rel="icon" href="image/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loader"><div class="loader-ring"></div></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="PURE"><span>PURE</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Dashboard</a>
+        <a href="products.html">Collections</a>
+        <a href="product.html">Product</a>
+        <a href="cart.html">Cart (<span data-cart-count>0</span>)</a><a href="account.html">Account</a>
+      </nav>
+      <div class="actions"><button id="themeToggle" class="btn-ghost">Dark</button></div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="promo-band">
+        <h3>PURE Design Studio</h3>
+        <p>Choose how you want to create your jewelry. UI is ready now, functionality can be added later.</p>
+      </div>
+
+      <section class="design-grid">
+        <article class="design-panel">
+          <p class="hero-kicker">Option 1</p>
+          <h2>Custom Design</h2>
+          <p class="meta">Build jewelry yourself by selecting quality, style, size, stone, and finish.</p>
+          <div class="design-fields">
+            <label>Jewelry Type
+              <select>
+                <option>Ring</option>
+                <option>Earrings</option>
+                <option>Bangle</option>
+                <option>Pendant</option>
+              </select>
+            </label>
+            <label>Metal Quality
+              <select>
+                <option>18KT Gold</option>
+                <option>22KT Gold</option>
+                <option>Platinum</option>
+              </select>
+            </label>
+            <label>Design Style
+              <select>
+                <option>Minimal</option>
+                <option>Traditional</option>
+                <option>Modern</option>
+                <option>Bridal</option>
+              </select>
+            </label>
+            <label>Size
+              <input type="text" placeholder="Enter size">
+            </label>
+            <label>Stone Type
+              <select>
+                <option>Diamond</option>
+                <option>Ruby</option>
+                <option>Emerald</option>
+                <option>No Stone</option>
+              </select>
+            </label>
+            <label>Extra Notes
+              <textarea rows="3" placeholder="Any custom engraving, pattern, or details..."></textarea>
+            </label>
+          </div>
+          <button class="btn-primary" type="button">Continue Custom Design</button>
+        </article>
+
+        <article class="design-panel">
+          <p class="hero-kicker">Option 2</p>
+          <h2>Design with AI</h2>
+          <p class="meta">Describe your jewelry idea in a command and AI will generate design concepts.</p>
+          <div class="ai-box">
+            <label>Your Prompt
+              <textarea rows="8" placeholder="Example: Design a 22KT gold ring with floral detailing and one center diamond for engagement."></textarea>
+            </label>
+            <div class="ai-tags">
+              <span class="chip">Occasion: Wedding</span>
+              <span class="chip">Style: Luxury</span>
+              <span class="chip">Budget: Premium</span>
+            </div>
+            <button class="btn-primary" type="button">Generate with AI</button>
+          </div>
+          <div class="ai-preview">
+            <h4>AI Design Preview</h4>
+            <p class="meta">Placeholder area for AI generated sketches/renders and design notes.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <div id="toast" class="toast">Added to cart</div>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

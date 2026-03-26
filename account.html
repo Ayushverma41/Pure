@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURE | Account</title>
+  <link rel="icon" href="image/logo/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loader"><div class="loader-ring"></div></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html"><img src="image/logo/Logo.png" alt="PURE"><span>PURE</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Dashboard</a>
+        <a href="products.html">Collections</a>
+        <a href="product.html">Product</a>
+        <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+        <a class="active" href="account.html">Account</a>
+      </nav>
+      <div class="actions"><button id="themeToggle" class="btn-ghost">Dark</button></div>
+    </div>
+  </header>
+
+  <main class="section" id="accountPage">
+    <div class="container" style="max-width:680px;">
+      <div class="promo-band">
+        <h3>PURE Login</h3>
+        <p>Simple dummy login flow stored in localStorage.</p>
+      </div>
+
+      <section class="auth-shell">
+        <div class="role-switch" id="roleSwitch">
+          <button type="button" class="role-btn active" data-role="buyer">Buyer</button>
+          <button type="button" class="role-btn" data-role="seller">Seller</button>
+          <span class="role-pill"></span>
+        </div>
+
+        <article class="design-panel" style="margin-bottom:14px;">
+          <p class="hero-kicker" id="modeTitle">Login</p>
+          <h2 id="modeHeading">Welcome Back</h2>
+
+          <form id="authForm" class="design-fields auth-form">
+            <label>Email
+              <input type="email" id="authEmail" placeholder="user@pure.com" required>
+            </label>
+            <label id="passwordLabel">Password
+              <input type="password" id="authPassword" placeholder="********" required>
+            </label>
+            <button type="button" class="btn-primary" id="mainActionBtn">Login</button>
+          </form>
+
+          <div class="auth-links">
+            <button type="button" class="link-btn" data-mode="register">New User</button>
+            <button type="button" class="link-btn" data-mode="forgot">Forgot Password</button>
+          </div>
+        </article>
+
+        <article class="design-panel" id="afterLoginPanel" style="display:none;">
+          <h2>Account Actions</h2>
+          <p class="meta" id="authStatus">Logged in</p>
+          <div class="row" style="justify-content:flex-start;">
+            <button type="button" class="btn-ghost" id="deleteAccountBtn">Delete Account</button>
+            <button type="button" class="btn-primary" id="logoutBtn">Logout</button>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <div id="toast" class="toast">Saved</div>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+  <script src="users.js"></script>
+</body>
+</html>
