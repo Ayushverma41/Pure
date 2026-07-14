@@ -32,6 +32,16 @@ function getProductById(id) {
   return PRODUCTS.find((p) => p.id === id);
 }
 
+function assetUrl(path) {
+  const value = String(path || "");
+  if (!value || /^(?:[a-z]+:)?\/\//i.test(value) || value.startsWith("data:") || value.startsWith("blob:") || value.startsWith("/")) {
+    return value;
+  }
+  const prefix = location.pathname.replace(/\\/g, "/").includes("/pages/") ? "../" : "";
+  if (value.startsWith("../")) return value;
+  return `${prefix}${value}`;
+}
+
 function syncProductsFromApi() {
   const db = window.PureDB && window.PureDB.read ? window.PureDB.read() : { products: [] };
   const incoming = Array.isArray(db.products) ? db.products : [];
@@ -111,7 +121,7 @@ function initPageFx() {
 function productCard(p) {
   return `
     <article class="card reveal">
-      <a href="product.html?id=${p.id}" class="card-media"><img src="${p.image}" alt="${p.name}"></a>
+      <a href="product.html?id=${p.id}" class="card-media"><img src="${assetUrl(p.image)}" alt="${p.name}"></a>
       <div class="card-body">
         <h3>${p.name}</h3>
         <div class="meta">${p.category} • ${stars(p.rating)}</div>
@@ -172,10 +182,10 @@ function initProductPage() {
   document.getElementById("pPrice").textContent = formatPrice(p.price);
 
   const main = document.getElementById("mainImage");
-  main.src = p.image;
+  main.src = assetUrl(p.image);
 
   const strip = document.getElementById("thumbs");
-  strip.innerHTML = p.gallery.map((img) => `<img src="${img}" alt="${p.name}">`).join("");
+  strip.innerHTML = p.gallery.map((img) => `<img src="${assetUrl(img)}" alt="${p.name}">`).join("");
   strip.querySelectorAll("img").forEach((img) => {
     img.onclick = () => (main.src = img.src);
   });
@@ -205,7 +215,7 @@ function initCartPage() {
     subtotal += line;
     return `
       <tr>
-        <td><img src="${p.image}" alt="${p.name}" style="width:58px;height:58px;object-fit:cover;border-radius:8px"></td>
+        <td><img src="${assetUrl(p.image)}" alt="${p.name}" style="width:58px;height:58px;object-fit:cover;border-radius:8px"></td>
         <td>${p.name}</td>
         <td>${formatPrice(p.price)}</td>
         <td>${item.qty}</td>
