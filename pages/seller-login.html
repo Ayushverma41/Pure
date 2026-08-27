@@ -3,51 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>PURE | Seller Login</title>
+
   <link rel="icon" href="../image/logo/Logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Styles -->
   <link rel="stylesheet" href="../stylesheets/seller-auth.css">
 </head>
-<body>
-  <main class="auth-shell">
-    <a href="../index.html" class="back-link">Back to Home</a>
-    <section class="auth-card">
-      <p class="kicker">Seller Authentication</p>
-      <h1>Sign In To Seller Dashboard</h1>
-      <p class="lead">Register new seller accounts, login, and reset password using local JSON data in browser storage.</p>
 
-      <div class="tabs">
-        <button class="tab active" data-mode="login">Login</button>
-        <button class="tab" data-mode="register">Register</button>
-        <button class="tab" data-mode="forgot">Forgot Password</button>
+<body>
+
+  <main class="auth-shell">
+
+    <!-- Back Navigation -->
+    <a href="../index.html" class="back-link">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      <span>Back to Home</span>
+    </a>
+
+    <!-- Authentication Card -->
+    <section class="auth-card">
+
+      <div class="auth-header">
+        <p class="kicker">Seller Portal</p>
+
+        <h1>Welcome Back</h1>
+
+        <p class="lead">
+          Sign in to manage your store, products, orders, and seller account.
+        </p>
       </div>
 
-      <form id="sellerAuthForm" class="form" novalidate>
+      <nav class="tabs" aria-label="Seller authentication" data-active="login">
+        <span class="tab-indicator" aria-hidden="true"></span>
+        <button class="tab active" type="button" data-mode="login" aria-pressed="true">Login</button>
+        <button class="tab" type="button" data-mode="register" aria-pressed="false">Register</button>
+        <button class="tab" type="button" data-mode="forgot" aria-pressed="false">Forgot Password</button>
+      </nav>
+
+      <form
+        id="sellerAuthForm"
+        class="form"
+        novalidate
+      >
+
         <label id="nameWrap" class="field hidden">
-          Full Name
-          <input id="nameInput" type="text" autocomplete="name" placeholder="Seller name">
+          <span>Full Name</span>
+          <input
+            id="nameInput"
+            type="text"
+            autocomplete="name"
+            placeholder="Enter your full name"
+            required
+          >
         </label>
 
         <label class="field">
-          Email
-          <input id="emailInput" type="email" autocomplete="email" placeholder="seller@example.com" required>
+
+          <span id="identityLabel">Email Address</span>
+
+          <input
+            id="emailInput"
+            type="email"
+            autocomplete="email"
+            placeholder="seller@example.com"
+            required
+          >
+
         </label>
 
+        <!-- Password -->
         <label class="field">
+
           <span id="passwordLabel">Password</span>
-          <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Minimum 6 characters" required>
+
+          <input
+            id="passwordInput"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            required
+          >
+
         </label>
 
-        <button class="btn" id="submitBtn" type="submit">Login</button>
+        <!-- Submit -->
+        <button
+          class="btn"
+          id="submitBtn"
+          type="submit"
+        >
+          <span id="submitBtnText">Login</span>
+          <i
+            id="submitBtnIcon"
+            class="bi bi-arrow-right"
+            aria-hidden="true"
+          ></i>
+        </button>
+
       </form>
 
-      <p class="status" id="statusText">Use your seller account credentials.</p>
+      <!-- Status -->
+      <p
+        class="status"
+        id="statusText"
+        role="status"
+        aria-live="polite"
+      ></p>
+
     </section>
+
   </main>
 
   <script src="../js/db.js"></script>
   <script src="../js/seller-auth.js"></script>
+
 </body>
 </html>

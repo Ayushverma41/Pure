@@ -62,7 +62,7 @@ img { max-width: 100%; display: block; }
 .logo img { width: 44px; }
 .logo span {font-family: "Manrope", sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.08em; }
 .nav-links { display: flex; gap: 20px; align-items: center; }
-.nav-links a { font-weight: 500; color: var(--muted); position: relative; }
+.nav-links a { font-weight: 600; letter-spacing: 0.01em; color: var(--muted); position: relative; }
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -121,7 +121,8 @@ img { max-width: 100%; display: block; }
 .btn-hero-main {
   padding: 9px 18px;
   font-size: .92rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.01em;
   box-shadow: 0 10px 24px var(--gold-glow);
   border-radius: 999px;
 }
@@ -183,7 +184,9 @@ img { max-width: 100%; display: block; }
   padding: 6px 12px;
   border-radius: 999px;
   color: var(--muted);
-  font-size: .84rem;
+  font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .section { padding: 32px 0 50px; }
@@ -235,7 +238,9 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: .9rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.92rem);
+  font-weight: 600;
+  line-height: 1.5;
   color: var(--muted);
 }
 .design-fields input,
@@ -307,7 +312,7 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
   letter-spacing: 0.02em;
 }
-.meta { color: var(--muted); font-size: .9rem; margin-bottom: 12px; }
+.meta { color: var(--muted); font-size: clamp(0.8rem, 1.2vw, 0.9rem); line-height: 1.5; margin-bottom: 12px; }
 .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .price { font-weight: 700; font-size: 1.02rem; }
 [data-cart-count].pulse { animation: pulse .28s ease; display: inline-block; }

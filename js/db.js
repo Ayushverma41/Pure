@@ -3,7 +3,15 @@
 
   const seed = {
     buyers: [],
-    sellers: [],
+    sellers: [{
+      id: "seller-ayush",
+      username: "ayush",
+      name: "Ayush",
+      email: "ayush@pure.local",
+      password_hash: "MTIzNA==",
+      created_at: "2026-01-01T00:00:00.000Z",
+      updated_at: "2026-01-01T00:00:00.000Z"
+    }],
     products: []
   };
 
@@ -21,6 +29,9 @@
     db.buyers = Array.isArray(db.buyers) ? db.buyers : [];
     db.sellers = Array.isArray(db.sellers) ? db.sellers : [];
     db.products = Array.isArray(db.products) ? db.products : [];
+    if (!db.sellers.some((seller) => normalizeEmail(seller.email) === "ayush@pure.local")) {
+      db.sellers.push({ ...seed.sellers[0] });
+    }
     return db;
   }
 
