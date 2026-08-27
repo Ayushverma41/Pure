@@ -27,7 +27,7 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Manrope", sans-serif;
   background:
     radial-gradient(700px circle at 0% -10%, var(--gold-glow), transparent 55%),
     radial-gradient(800px circle at 100% 10%, color-mix(in srgb, var(--surface-2) 70%, transparent), transparent 48%),
@@ -60,7 +60,7 @@ img { max-width: 100%; display: block; }
 }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
 .logo img { width: 44px; }
-.logo span { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; }
+.logo span {font-family: "Manrope", sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.08em; }
 .nav-links { display: flex; gap: 20px; align-items: center; }
 .nav-links a { font-weight: 500; color: var(--muted); position: relative; }
 .nav-links a::after {
@@ -87,7 +87,8 @@ img { max-width: 100%; display: block; }
 .btn-primary {
   background: linear-gradient(120deg, var(--primary), #ffd94b);
   color: #111;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.01em;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 26px var(--gold-glow); }
@@ -100,7 +101,8 @@ img { max-width: 100%; display: block; }
   position: relative;
   padding: 8px 16px;
   font-size: .9rem;
-  letter-spacing: .02em;
+  letter-spacing: 0.01em;
+  font-weight: 800;
   box-shadow: 0 12px 30px var(--gold-glow);
   border-radius: 999px;
 }
@@ -147,17 +149,18 @@ img { max-width: 100%; display: block; }
 .hero-kicker {
   margin: 0 0 10px;
   text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: .78rem;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.78rem, 1.2vw, 0.9rem);
   color: var(--primary-strong);
   font-weight: 700;
 }
 .hero h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Manrope", sans-serif;
   font-size: clamp(2.4rem, 4vw, 4.3rem);
-  line-height: .95;
+  line-height: 1.2;
   margin: 0 0 14px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 .hero p { color: var(--muted); margin-bottom: 24px; }
 .hero-card {
@@ -194,8 +197,11 @@ img { max-width: 100%; display: block; }
 }
 .promo-band h3 {
   margin: 0 0 8px;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 .promo-band p { margin: 0; color: var(--muted); }
 .design-grid {
@@ -212,8 +218,11 @@ img { max-width: 100%; display: block; }
 }
 .design-panel h2 {
   margin: 0 0 8px;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Manrope", sans-serif;
   font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 .design-fields {
   display: grid;
@@ -251,15 +260,20 @@ img { max-width: 100%; display: block; }
 }
 .ai-preview h4 {
   margin: 0 0 8px;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 .section-head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 18px; }
 .section-head h2 {
   margin: 0;
   font-size: 2rem;
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 .grid {
@@ -288,8 +302,10 @@ img { max-width: 100%; display: block; }
 .card-body h3 {
   margin: 0 0 6px;
   font-size: 1.2rem;
-  line-height: 1.15;
-  font-family: "Cormorant Garamond", serif;
+  line-height: 1.2;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 .meta { color: var(--muted); font-size: .9rem; margin-bottom: 12px; }
 .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
